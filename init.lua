@@ -1,6 +1,6 @@
 cubeColor = "ffff00"
 
-minetest.register_node("housemod:cubec", {
+minetest.register_node("nodeblock:cubec", {
     description = "Nodevoxel cube Controller " .. cubeColor,
     tiles = {
         "nodevoxel_cube_up_c.png^[colorize:#" .. cubeColor .. "50",
@@ -216,7 +216,7 @@ minetest.register_node("housemod:cubec", {
    end
 })
 
-minetest.register_node("housemod:cubex", {
+minetest.register_node("nodeblock:cubex", {
     description = "Nodevoxel cube X " .. cubeColor,
     tiles = {
         "nodevoxel_cube_up_x.png^[colorize:#" .. cubeColor .. "50",
@@ -243,7 +243,7 @@ minetest.register_node("housemod:cubex", {
 })
 
 
-minetest.register_node("housemod:cubey", {
+minetest.register_node("nodeblock:cubey", {
     description = "Nodevoxel cube Y " .. cubeColor,
     tiles = {
         "nodevoxel_cube_up_y.png^[colorize:#" .. cubeColor .. "50",
@@ -270,7 +270,7 @@ minetest.register_node("housemod:cubey", {
    
 })
 
-minetest.register_node("housemod:cubez", {
+minetest.register_node("nodeblock:cubez", {
     description = "Nodevoxel cube Z " .. cubeColor,
     tiles = {
         "nodevoxel_cube_up_z.png^[colorize:#" .. cubeColor .. "50",
