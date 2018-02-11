@@ -155,49 +155,28 @@ minetest.register_node("housemod:cubec", {
 
                             print("Build wall")                
 
+                            for i = 0, sizex do
+                                for j = 0, sizey do
+                                    for k = 0, sizez do
 
-                            if directionx == 1 then 
-                                for i = 0, sizex do
-                                    minetest.set_node({x=pos.x + i, y=pos.y, z=pos.z}, {name="default:wood"}   )       
-                                    
-                                    
-                                          
-                                end             
-                            end               
-                                    
-                            if directionx == -1 then 
-                                for i = 0, sizex do
-                                    minetest.set_node({x=pos.x - i, y=pos.y, z=pos.z}, {name="default:wood"}   )             
-                                end             
-                            end   
-                                                       
-                                           
-                            if directiony == 1 then 
-                                for i = 0, sizey do
-                                    minetest.set_node({x=pos.x, y=pos.y + i, z=pos.z}, {name="default:wood"}   )             
-                                end             
-                            end               
-                                    
-                            if directiony == -1 then 
-                                for i = 0, sizey do
-                                    minetest.set_node({x=pos.x, y=pos.y - i, z=pos.z}, {name="default:wood"}   )             
-                                end             
-                            end                                       
-                                    
-                                    
-                            if directionz == 1 then 
-                                for i = 0, sizez do
-                                    minetest.set_node({x=pos.x, y=pos.y, z=pos.z + i}, {name="default:wood"}   )             
-                                end             
-                            end               
-                                    
-                            if directionz == -1 then 
-                                for i = 0, sizez do
-                                    minetest.set_node({x=pos.x, y=pos.y, z=pos.z - i}, {name="default:wood"}   )             
-                                end             
-                            end  
-                                                                
-                                           
+                                        if directionx == -1 then
+                                            i = -i
+                                        end
+                                         
+                                        if directiony == -1 then
+                                            j = -j
+                                        end                                       
+                                        
+                                        if directionz == -1 then
+                                            k = -k
+                                        end       
+                                                                                
+                                        minetest.set_node({x=pos.x + i, y=pos.y + j , z=pos.z + k}, {name="default:wood"}   )   
+
+                                    end
+                                end
+                            end
+
                             return true
                         end
                     else
