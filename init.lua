@@ -122,7 +122,7 @@ minetest.register_node("housemod:cubec", {
             directionz = 1
         end
 
-        print("DirectionX: " .. directionx .. " DirectionY: " .. directiony .. " DirectionZ: " .. directionz)
+        --print("DirectionX: " .. directionx .. " DirectionY: " .. directiony .. " DirectionZ: " .. directionz)
         
         if errorposcube == 1 then
             
@@ -131,9 +131,9 @@ minetest.register_node("housemod:cubec", {
                 "size[6,7;]"..
                 "background[-0.5,-0.5;7,8;mysoundblocks_bg.png]"..
                
-                "field[1,1;2,1;sizex;X;0]" ..
-                "field[1,2;2,1;sizey;Y;0]" ..
-                "field[1,3;2,1;sizez;Z;0]" ..
+                "field[1,1;2,1;sizex;X;1]" ..
+                "field[1,2;2,1;sizey;Y;1]" ..
+                "field[1,3;2,1;sizez;Z;1]" ..
                 "button_exit[0.75,6.25;1.5,1;ent;Validate]"
             )
         end
@@ -147,6 +147,7 @@ minetest.register_node("housemod:cubec", {
                     local sizey = fields["sizey"]
                     local sizez = fields["sizez"]
 
+                    print("DirectionX: " .. directionx .. " DirectionY: " .. directiony .. " DirectionZ: " .. directionz)
 
                     if fields["ent"] or fields["sizex"] or fields["sizey"] or fields["sizez"] then
 
@@ -155,22 +156,26 @@ minetest.register_node("housemod:cubec", {
 
                             print("Build wall")                
 
-                            for i = 0, sizex do
-                                for j = 0, sizey do
-                                    for k = 0, sizez do
+                            for i = 0, (sizex - 1) do
+                            
+                                if directionx == -1 then
+                                    i = 0 - i
+                                end
+    
+                                for j = 0, (sizey - 1) do
+                                
+                                    if directiony == -1 then
+                                        j = 0 - j
+                                    end                                       
+                            
+                                    for k = 0, (sizez - 1) do
 
-                                        if directionx == -1 then
-                                            i = -i
-                                        end
-                                         
-                                        if directiony == -1 then
-                                            j = -j
-                                        end                                       
                                         
                                         if directionz == -1 then
-                                            k = -k
-                                        end       
-                                                                                
+                                            k = 0 - k
+                                        end 
+                                              
+                                        print("dx: " .. directionx .. " i: " .. i .. " j: " .. j .. " k:" .. k)                                        
                                         minetest.set_node({x=pos.x + i, y=pos.y + j , z=pos.z + k}, {name="default:wood"}   )   
 
                                     end
