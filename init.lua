@@ -24,10 +24,13 @@ minetest.register_node("housemod:cubec", {
        
         print(" " .. tostring(pos.x) .. " " .. tostring(pos.y) .. " " .. tostring(pos.z) .. " " )  
 
+        local player_name = player:get_player_name()
+
         -- Same opposite cube
 		if minetest.get_meta({x = pos.x + 1, y = pos.y, z = pos.z}):get_string("type") == "X" and
 		   minetest.get_meta({x = pos.x - 1, y = pos.y, z = pos.z}):get_string("type") == "X" then
 		        print("Same opposite cube : X")
+                minetest.chat_send_player(player_name, "Same opposite cube : X")
 		        errorposcube = 0
 		        return false
 		end
@@ -35,6 +38,7 @@ minetest.register_node("housemod:cubec", {
 		if minetest.get_meta({x = pos.x, y = pos.y + 1, z = pos.z}):get_string("type") == "Y" and
 		   minetest.get_meta({x = pos.x, y = pos.y - 1, z = pos.z}):get_string("type") == "Y" then
 		        print("Same opposite cube : Y")
+                minetest.chat_send_player(player_name, "Same opposite cube : Y")
 		        errorposcube = 0
 		        return false		        
 		end		       
@@ -44,6 +48,7 @@ minetest.register_node("housemod:cubec", {
 		if minetest.get_meta({x = pos.x, y = pos.y, z = pos.z + 1}):get_string("type") == "Z" and
 		   minetest.get_meta({x = pos.x, y = pos.y, z = pos.z - 1}):get_string("type") == "Z" then
 		        print("Same opposite cube : Z")
+                minetest.chat_send_player(player_name, "Same opposite cube : Z")
 		        errorposcube = 0
 		        return false		        
 		end	
@@ -53,6 +58,7 @@ minetest.register_node("housemod:cubec", {
 		if minetest.get_meta({x = pos.x + 1, y = pos.y, z = pos.z}):get_string("type") == "Y" or
 		   minetest.get_meta({x = pos.x + 1, y = pos.y, z = pos.z}):get_string("type") == "Z" then
 		        print("Bad position cube : (Y | Z) instead of X")
+                minetest.chat_send_player(player_name, "Bad position cube : (Y | Z) instead of X")
 		        errorposcube = 0
 		        return false		        
 		end			       
@@ -60,6 +66,7 @@ minetest.register_node("housemod:cubec", {
 		if minetest.get_meta({x = pos.x - 1, y = pos.y, z = pos.z}):get_string("type") == "Y" or
 		   minetest.get_meta({x = pos.x - 1, y = pos.y, z = pos.z}):get_string("type") == "Z" then
 		        print("Bad position cube : (Y | Z ) instead of X")
+                minetest.chat_send_player(player_name, "Bad position cube : (Y | Z ) instead of X")
 		        errorposcube = 0
 		        return false		        
 		end	
@@ -67,6 +74,7 @@ minetest.register_node("housemod:cubec", {
 		if minetest.get_meta({x = pos.x, y = pos.y + 1, z = pos.z}):get_string("type") == "X" or
 		   minetest.get_meta({x = pos.x, y = pos.y + 1, z = pos.z}):get_string("type") == "Z" then
 		        print("Bad position cube : (X | Z ) instead of Y")
+                minetest.chat_send_player(player_name, "Bad position cube : (X | Z ) instead of Y")
 		        errorposcube = 0
 		        return false		        
 		end			       
@@ -74,6 +82,7 @@ minetest.register_node("housemod:cubec", {
 		if minetest.get_meta({x = pos.x, y = pos.y - 1, z = pos.z}):get_string("type") == "X" or
 		   minetest.get_meta({x = pos.x, y = pos.y - 1, z = pos.z}):get_string("type") == "Z" then
 		        print("Bad position cube : (X | Z ) instead of Y")
+                minetest.chat_send_player(player_name, "Bad position cube : (X | Z ) instead of Y")
 		        errorposcube = 0
 		        return false		        
 		end	
@@ -82,6 +91,7 @@ minetest.register_node("housemod:cubec", {
 		if minetest.get_meta({x = pos.x, y = pos.y, z = pos.z + 1}):get_string("type") == "X" or
 		   minetest.get_meta({x = pos.x, y = pos.y, z = pos.z + 1}):get_string("type") == "Y" then
 		        print("Bad position cube : (X | Y) instead of Z")
+                minetest.chat_send_player(player_name, "Bad position cube : (X | Y) instead of Z")
 		        errorposcube = 0
 		        return false
 		end			       
@@ -89,6 +99,7 @@ minetest.register_node("housemod:cubec", {
 		if minetest.get_meta({x = pos.x, y = pos.y, z = pos.z - 1}):get_string("type") == "X" or
 		   minetest.get_meta({x = pos.x, y = pos.y, z = pos.z - 1}):get_string("type") == "Y" then
 		        print("Bad position cube : (X | Y) instead of Z")
+                minetest.chat_send_player(player_name, "Bad position cube : (X | Y) instead of Z")
 		        errorposcube = 0
 		        return false
 		end	
